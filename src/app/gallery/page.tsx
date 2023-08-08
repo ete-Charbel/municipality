@@ -1,134 +1,46 @@
 "use client";
 
 import Navbar from "@/components/navbar";
-import Image from "next/image";
 import React from "react";
-
-import YouTube from "react-youtube";
+import ImageWrap from "@/components/imageWrap";
+import YtWrap from "@/components/YtWrap";
 
 export default function Page() {
+  const gridRefs = [
+    "old_souq.jpg",
+    "beach.jpeg",
+    "boats.jpg",
+    "NT2Zz3wHJ3Y",
+    "door.jpg",
+    "zOWhreNZzyA",
+    "tuktuk.webp",
+    "church.jpg",
+    "painting.jpg",
+    "pool.jpg",
+    "wall.jpg",
+    "villageClub.jpeg",
+  ];
+
+  const imageElements = [];
+
+  for (let i = 0; i < gridRefs.length; i++) {
+    if (gridRefs[i].includes(".")) {
+      imageElements.push(<ImageWrap src={"/gallery_images/" + gridRefs[i]} />);
+    } else {
+      imageElements.push(<YtWrap id={gridRefs[i]} />);
+    }
+  }
   return (
     <>
       <Navbar />
       <br />
-      <div className="flex gap-6  justify-center">
-        <div className="zoom container2">
-          <Image
-            src="/gallery_images/old_souq.jpg"
-            alt="placeholder"
-            width="500"
-            height="500"
-          />
-        </div>
-        <div className="zoom container2">
-          <Image
-            src="/gallery_images/beach.jpeg"
-            alt="placeholder"
-            width="500"
-            height="500"
-          />
-        </div>
-        <div className="zoom container2">
-          <Image
-            src="/gallery_images/boats.jpg"
-            alt="placeholder"
-            width="500"
-            height="500"
-          />
-        </div>
+
+      <div className="grid grid-cols-3 gap-6 ml-20 justify-center">
+        {imageElements}
+
+        {/* <YtWrap id="NT2Zz3wHJ3Y" />
+        <YtWrap id="zOWhreNZzyA" /> */}
       </div>
-      <br />
-      <div className="flex gap-6  justify-center">
-        <div>
-          <YouTube
-            videoId="NT2Zz3wHJ3Y"
-            opts={{
-              height: "500",
-              width: "500",
-              playerVars: {
-                autoplay: 0,
-              },
-            }}
-          />
-        </div>
-        <div className="zoom container2">
-          <Image
-            src="/gallery_images/door.jpg"
-            alt="placeholder"
-            width="500"
-            height="500"
-          />
-        </div>
-        <div>
-          <YouTube
-            videoId="zOWhreNZzyA"
-            opts={{
-              height: "500",
-              width: "500",
-              playerVars: {
-                autoplay: 0,
-              },
-            }}
-          />
-        </div>
-      </div>
-      <br />
-      <div className="flex gap-6 justify-center">
-        <div className="zoom container2">
-          <Image
-            src="/gallery_images/tuktuk.webp"
-            alt="placeholder"
-            width="500"
-            height="500"
-          />
-        </div>
-        <div className="zoom container2">
-          <Image
-            src="/gallery_images/church.jpg"
-            alt="placeholder"
-            width="500"
-            height="500"
-          />
-        </div>
-        <div className="zoom container2">
-          <Image
-            src="/gallery_images/painting.jpg"
-            alt="placeholder"
-            width="500"
-            height="500"
-          />
-        </div>
-      </div>
-      <br />
-      <div className="flex gap-6 justify-center">
-        <div className="zoom container2 ">
-          <Image
-            src="/gallery_images/pool.jpg"
-            alt="placeholder"
-            width="500"
-            height="500"
-            // layout="fill"
-            // fill={true}
-          />
-        </div>
-        <div className="zoom container2 overflow-hidden">
-          <Image
-            src="/gallery_images/villageClub.jpeg"
-            alt="placeholder"
-            width="500"
-            height="500"
-          />
-        </div>
-        <div className="zoom container2">
-          <Image
-            src="/gallery_images/wall.jpg"
-            alt="placeholder"
-            width="500"
-            height="500"
-          />
-        </div>
-      </div>
-      <br />
     </>
   );
 }

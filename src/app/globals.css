@@ -33,7 +33,7 @@ body {
 
 .zoom {
   padding: 0px;
-  transition: transform 0.2s; /* Animation */
+  transition: transform 0.2s ease-in-out; /* Animation */
 }
 
 .zoom:hover {
