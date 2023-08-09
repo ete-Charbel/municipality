@@ -17,7 +17,7 @@ export default function Page() {
   return (
     <>
       <Navbar />
-      <Map />
+      <Map lat={34.25453805169052} lng={35.65980556808268} />
     </>
   );
 }
