@@ -21,13 +21,13 @@ export default function Page() {
     "villageClub.jpeg",
   ];
 
-  const imageElements = [];
+  const gridElements = [];
 
   for (let i = 0; i < gridRefs.length; i++) {
     if (gridRefs[i].includes(".")) {
-      imageElements.push(<ImageWrap src={"/gallery_images/" + gridRefs[i]} />);
+      gridElements.push(<ImageWrap src={"/gallery_images/" + gridRefs[i]} />);
     } else {
-      imageElements.push(<YtWrap id={gridRefs[i]} />);
+      gridElements.push(<YtWrap id={gridRefs[i]} />);
     }
   }
   return (
@@ -36,7 +36,7 @@ export default function Page() {
       <br />
 
       <div className="grid grid-cols-3 gap-6 ml-20 justify-center">
-        {imageElements}
+        {gridElements}
 
         {/* <YtWrap id="NT2Zz3wHJ3Y" />
         <YtWrap id="zOWhreNZzyA" /> */}
